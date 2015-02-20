@@ -1,5 +1,5 @@
 Whyleave::Application.routes.draw do
-  root "pages#home"
+  root "pages#locate_event"
   get "home", to: "pages#home", as: "home"
   get "inside", to: "pages#inside", as: "inside"
   

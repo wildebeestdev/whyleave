@@ -7,13 +7,16 @@ require 'Eventful'
 
 
   def home
+  end
 
-    params = {
-
-    }
-    event = Eventful.new
-    results = event.search(params)
-binding.pry
+  def locate_event
+   params = {
+         :coord => cookies[:lat_lng]
+      }
+      event = Eventful.new
+      # results = event.search(params)
+      redirect_to home_path
+  binding.pry
   end
 
   def inside
