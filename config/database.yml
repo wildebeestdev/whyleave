@@ -5,8 +5,8 @@ development:
   adapter: postgresql
   encoding: utf8
   database: whyleave_development
-  username: wildebeest
+  username: 
   host: localhost
   pool: 5
-  port: 3000
+  port: 5432
   password: none
