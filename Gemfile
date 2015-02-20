@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.1.2'
 
+#google maps gem
+gem 'gmaps4rails'
+
 # Standard Rails gems
 gem 'rails', '4.2.0'
 gem 'sass-rails', '5.0.1'
