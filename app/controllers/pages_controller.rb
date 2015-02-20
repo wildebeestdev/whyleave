@@ -15,7 +15,7 @@ require 'Eventful'
       }
       event = Eventful.new
       # results = event.search(params)
-      redirect_to home_path
+      # redirect_to home_path
   binding.pry
   end
 
