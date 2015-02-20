@@ -6,6 +6,25 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :reject_locked!, if: :devise_controller?
 
+  def time(timezone, hour)
+    Time.now.in_time_zone(timezone).change(hour: hour)
+  end 
+  
+  def with_timezone
+    timezone = Time.find_zone(cookies[:timezone])
+    Time.now.in_time_zone(timezone)
+  end 
+
+  def with_timezone_day
+    timezone = Time.find_zone(cookies[:timezone])
+    Time.now.in_time_zone(timezone).strftime("%A")
+  end 
+
+  def with_timezone_time
+    timezone = Time.find_zone(cookies[:timezone])
+    Time.now.in_time_zone(timezone).strftime("%l:%M%p")
+  end 
+
 
   # Devise permitted params
   def configure_permitted_parameters

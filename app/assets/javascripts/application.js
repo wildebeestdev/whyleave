@@ -16,3 +16,33 @@
 //= require bootstrap 
 //= require analytics
 //= require common
+
+function getGeoLocation() {
+  navigator.geolocation.getCurrentPosition(setGeoCookie);
+  console.log('here');
+}
+
+function setGeoCookie(position) {
+  var d = new Date();
+  var n = d.getTime();
+  var cookie_val = position.coords.latitude + "," + position.coords.longitude
+                               
+  var tz = jstz.determine();
+  document.cookie = "timezone=" + tz.name();
+  
+  document.cookie = "lat_lng=" + escape(cookie_val);
+  document.cookie = "dateTime=" + escape(n);
+  
+}
+  $(document).ready(function() {
+  
+  if (document.cookie.indexOf("lat_lng") >= 0) {
+    // console.log( "I have a cookie!");
+  }
+  else {
+    // console.log("i don't have a cookie!")
+    getGeoLocation();
+  };
+});
+
+    
