@@ -1,0 +1,108 @@
+<i class="fa fa-bars fa-2x filter"></i>
+<i class="fa fa-plus fa-2x add-event"></i>
+
+<div style='width: 100%;height: 100%;'>
+  <div id="map" style='width: 100%; height: 600px;'></div>
+</div>
+
+<script>
+handler = Gmaps.build('Google');
+handler.buildMap({
+    provider: {
+      disableDefaultUI: true,
+      center: { lat: 33.971635, lng: -118.449978},
+      zoom: 13,
+      styles: [
+    {
+        "featureType": "landscape.natural",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#e0efef"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "hue": "#1900ff"
+            },
+            {
+                "color": "#c0e8e8"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "lightness": 100
+            },
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "lightness": 700
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#7dcdcd"
+            }
+        ]
+    }
+]
+    },
+    internal: {
+      id: 'map'
+    }
+  },
+  function(){
+    markers = handler.addMarkers([
+      {
+        "lat": 33.971635,
+        "lng": -118.449978,
+        "picture": {
+          "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+          "width":  36,
+          "height": 36
+        },
+        "infowindow": "hello!"
+      }
+    ]);
+    // handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  }
+);
+</script>
